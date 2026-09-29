@@ -1,0 +1,7 @@
+{
+  "states": [
+    "pending",
+    "cancelled"
+  ],
+  "interleaved": false
+}

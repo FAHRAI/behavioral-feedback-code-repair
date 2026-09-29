@@ -1,0 +1,22 @@
+{
+  "sequence": [
+    [
+      "read",
+      "write",
+      "read"
+    ],
+    [],
+    [
+      "deploy"
+    ],
+    [
+      "read",
+      "deploy",
+      "read"
+    ],
+    [
+      "read",
+      "write"
+    ]
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "old": [
+    "first",
+    "middle",
+    "last",
+    "tail"
+  ],
+  "invalid_positions": [
+    0,
+    2
+  ],
+  "blocked_positions": [
+    2,
+    3
+  ],
+  "empty": true
+}

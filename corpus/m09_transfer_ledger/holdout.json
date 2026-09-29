@@ -1,0 +1,8 @@
+{
+  "failures": [
+    "callback",
+    "memo",
+    "funds"
+  ],
+  "preserve_existing": true
+}

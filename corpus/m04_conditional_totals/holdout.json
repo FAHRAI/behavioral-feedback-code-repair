@@ -1,0 +1,11 @@
+{
+  "sizes": [
+    3,
+    8,
+    17
+  ],
+  "null_amount": true,
+  "void_only": true,
+  "negative_only": true,
+  "null_only": true
+}

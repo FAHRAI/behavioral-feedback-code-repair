@@ -1,0 +1,392 @@
+{
+  "tasks": [
+    {
+      "id": "m17_literal_prefix",
+      "group": "literal_input",
+      "title": "Literal prefix boundaries",
+      "mechanism": "Start anchoring with literal metacharacters and case",
+      "template_cluster": "literal-affix",
+      "holdout_shift": "H combines wildcard/backslash/bracket prefixes, duplicate values and insertion between calls.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/glob_pattern.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/case_fold.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m18_literal_suffix",
+      "group": "literal_input",
+      "title": "Literal suffix and zero length",
+      "mechanism": "End anchoring; zero-length suffix and escaped pattern semantics",
+      "template_cluster": "literal-affix",
+      "holdout_shift": "D omits empty suffix; H adds it, combined pattern characters, duplicates and insertions.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/like_pattern.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/case_fold.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/diagnostic_overfit.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic contract-edge omission: deliberately passes D and fails H; not observed model behavior."
+        }
+      ]
+    },
+    {
+      "id": "m19_exact_token",
+      "group": "literal_input",
+      "title": "Exact whitespace token membership",
+      "mechanism": "Token boundaries rather than substring/regex matching",
+      "template_cluster": "literal-tokenization",
+      "holdout_shift": "H introduces tabs/newlines, repeated token boundaries and mutation; D uses spaces only.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/substring.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/regex_token.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m20_exact_term_set",
+      "group": "literal_input",
+      "title": "Exact any-of term list",
+      "mechanism": "Array membership with literal delimiters, duplicates and empty set",
+      "template_cluster": "literal-set-membership",
+      "holdout_shift": "H combines repeated terms, empty strings and punctuation in one query, preserves duplicate rows and tests insertion.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/csv_terms.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/empty_fallback.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m21_tenant_visibility_or",
+      "group": "access_scope",
+      "title": "Tenant scope around visibility OR",
+      "mechanism": "Mandatory tenant intersection with owner OR public visibility",
+      "template_cluster": "access-boolean-scope",
+      "holdout_shift": "H adds records satisfying both OR arms, same owner in another tenant and public/tenant transitions between calls.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/public_or_escape.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/owner_or_escape.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m22_parent_join_scope",
+      "group": "access_scope",
+      "title": "Assigned tickets through parent tenant",
+      "mechanism": "Tenant authorization inherited through parent join plus assignee and status intersection",
+      "template_cluster": "access-parent-join",
+      "holdout_shift": "H uses multiple same-tenant parents and changes a parent tenant between calls, independently from ticket fields.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/missing_parent.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/missing_status.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m23_all_or_nothing_batch",
+      "group": "access_scope",
+      "title": "All-or-nothing authorized batch read",
+      "mechanism": "Whole-request authorization with missing/foreign IDs, duplicates and request ordering",
+      "template_cluster": "access-batch-totality",
+      "holdout_shift": "D omits empty batch; H adds empty batch, mixed duplicate/foreign IDs and ownership transfer after earlier calls.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/partial_subset.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/sorted_instead_of_requested.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/diagnostic_overfit.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic contract-edge omission: deliberately passes D and fails H; not observed model behavior."
+        }
+      ]
+    },
+    {
+      "id": "m24_nested_resource_chain",
+      "group": "access_scope",
+      "title": "Nested resource lookup chain",
+      "mechanism": "Requested parent/child identity plus parent ownership; same-owner wrong-parent edge",
+      "template_cluster": "access-parent-join",
+      "holdout_shift": "H adds wrong-parent children under the same owner, absent parent/child combinations and note reparenting between calls.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/ignore_parent_identity.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/missing_owner.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    }
+  ]
+}

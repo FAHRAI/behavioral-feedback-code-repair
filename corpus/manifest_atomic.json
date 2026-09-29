@@ -1,0 +1,412 @@
+{
+  "tasks": [
+    {
+      "id": "m09_transfer_ledger",
+      "title": "Balance transfer with a ledger write",
+      "group": "atomicity",
+      "mechanism": "Cross-model balances and required ledger validation/callback are one unit.",
+      "template_cluster": "transaction_boundary",
+      "holdout_shift": "D validation failures; H additionally fails after ledger INSERT callback.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/no_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/rescue_inside_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/prevalidate_only.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic diagnostic-only repair control; not observed model behavior. Prevalidates visible validation cases but cannot roll back a later callback."
+        }
+      ]
+    },
+    {
+      "id": "m10_replace_tracks",
+      "title": "Replace an ordered child collection",
+      "group": "atomicity",
+      "mechanism": "Destruction followed by insertion must restore deleted identities on failure.",
+      "template_cluster": "transaction_boundary",
+      "holdout_shift": "H varies invalid insertion and late before_destroy failure positions and empty replacement.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/no_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/non_bang_insert.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m11_publish_callbacks",
+      "title": "Publishing with callback-created deliveries",
+      "group": "atomicity",
+      "mechanism": "Rollback includes side-effect rows created inside after_update callbacks across a batch.",
+      "template_cluster": "transaction_boundary",
+      "holdout_shift": "H fails at first/middle positions, larger batch and duplicate target IDs.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/no_batch_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/transaction_per_item.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m12_nested_savepoint",
+      "title": "A failed batch inside its caller transaction",
+      "group": "atomicity",
+      "mechanism": "A method-local savepoint must preserve caller writes while reverting its own partial updates.",
+      "template_cluster": "transaction_boundary",
+      "holdout_shift": "D no outer transaction; H nested transaction with committed caller writes before and after failed call.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/no_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/swallow_validation.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/joined_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic diagnostic-only repair control; not observed model behavior. Uses a joined transaction: Rollback is swallowed without reverting method writes inside caller transaction."
+        }
+      ]
+    },
+    {
+      "id": "m13_credit_event_dedup",
+      "title": "Persistent per-account event deduplication",
+      "group": "repeat_calls",
+      "mechanism": "The persistent composite account/event identity must survive interleaving and preexisting event rows.",
+      "template_cluster": "persistent_repeated_state",
+      "holdout_shift": "H repeats after different keys/accounts and includes persisted imported event.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/always_apply.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/composite_lookup_raw_storage.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/last_request_only.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic diagnostic-only repair control; not observed model behavior. Handles adjacent duplicate only, losing identity after interleaved request."
+        }
+      ]
+    },
+    {
+      "id": "m14_set_permissions",
+      "title": "Stable identities when assigning a permission set",
+      "group": "repeat_calls",
+      "mechanism": "Set reconciliation must remove obsolete memberships, deduplicate and preserve retained row IDs.",
+      "template_cluster": "persistent_repeated_state",
+      "holdout_shift": "H includes empty/disjoint sets, repeated input duplicates and return to an earlier set.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/append_only.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/rebuild_every_time.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m15_idempotency_conflict",
+      "title": "Reject conflicting reuse of an idempotency key",
+      "group": "repeat_calls",
+      "mechanism": "Durable deduplication must also bind the complete payload and preserve state on conflict.",
+      "template_cluster": "persistent_repeated_state",
+      "holdout_shift": "H changes recipient only, interleaves keys, and reuses an externally inserted row.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/ignore_payload.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/always_insert.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/compare_amount_only.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic diagnostic-only repair control; not observed model behavior. Checks only the amount field; D changes amount, H independently changes recipient."
+        }
+      ]
+    },
+    {
+      "id": "m16_complete_dispatch",
+      "title": "A terminal transition applied exactly once",
+      "group": "repeat_calls",
+      "mechanism": "Repeat calls must preserve original completion time/counter/receipt and obey terminal-state semantics.",
+      "template_cluster": "persistent_repeated_state",
+      "holdout_shift": "H includes preexisting completed rows without receipts, running state, interleaving and varied retry ticks.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/repeat_completion.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/refresh_completed_tick.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    }
+  ]
+}

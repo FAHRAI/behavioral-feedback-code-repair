@@ -1,0 +1,25 @@
+{
+  "values": [
+    "one.log",
+    "two.log",
+    "log.backup",
+    "ONE.LOG",
+    "a%",
+    "ab",
+    "under_",
+    "underx",
+    "q[x]",
+    "O'Neil"
+  ],
+  "ordinary": [
+    "two.log",
+    "absent"
+  ],
+  "behavior": [
+    ".LOG",
+    "%",
+    "_",
+    "[x]",
+    "'Neil"
+  ]
+}

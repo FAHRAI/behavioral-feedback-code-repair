@@ -1,0 +1,1222 @@
+{
+  "version": "main-candidate-0.1.1",
+  "status": "candidate corpus; no model answers collected; audit required",
+  "created_at": "2026-09-24",
+  "scope": "24 purpose-designed scenarios, six fixed families; not a random sample of Rails software",
+  "tasks": [
+    {
+      "id": "m01_polymorphic_feed",
+      "group": "queries",
+      "title": "Polymorphic feed resolution",
+      "mechanism": "Batch resolve polymorphic target types and missing targets",
+      "template_cluster": "query_polymorphic_batch",
+      "holdout_shift": "Holdout adds dangling target ids and a third target type, with the same type mixture at every measured scale.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/lazy_subject.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/preload_then_find.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/synthetic_two_types.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic diagnostic-only patch, not observed model behavior; fails a contract-covered holdout boundary."
+        }
+      ]
+    },
+    {
+      "id": "m02_latest_reading",
+      "group": "queries",
+      "title": "Latest reading per sensor",
+      "mechanism": "Top one per parent with timestamp ties, out-of-order arrivals, and absent child rows",
+      "template_cluster": "query_groupwise_max",
+      "holdout_shift": "Holdout introduces equal timestamps requiring id tie-break, a lower-tick reading inserted last, and sensors with no readings; every measured scale repeats the same shape.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/per_sensor_query.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/preload_then_reorder.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/max_id_instead_of_tick.rb",
+          "purpose": "Authored realistic fault control; not observed model behavior. Diagnostic fixtures do not expose this contract violation; holdout fixtures do.",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m03_tag_intersection",
+      "group": "queries",
+      "title": "Distinct tag intersections",
+      "mechanism": "Set intersection over duplicate join records, including mixed known and unknown requirements",
+      "template_cluster": "query_many_to_many_intersection",
+      "holdout_shift": "Holdout adds duplicate memberships, untagged projects, repeated requested names, and a mixed known/unknown request; empty requested set includes all projects.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/lazy_tags.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/preload_then_pluck.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/drop_unknown_tags.rb",
+          "purpose": "Authored realistic fault control; not observed model behavior. Diagnostic fixtures do not expose this contract violation; holdout fixtures do.",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m04_conditional_totals",
+      "group": "queries",
+      "title": "Conditional invoice totals",
+      "mechanism": "Filtered grouped aggregation retaining empty parents, negative totals and NULL-only totals",
+      "template_cluster": "query_conditional_aggregation",
+      "holdout_shift": "Holdout adds clients with only void invoices, NULL amounts, negative-only posted amounts and NULL-only posted amounts; preserve signed totals and retain every client.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/per_client_sum.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/preload_then_sum.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/clamp_negative_total.rb",
+          "purpose": "Authored realistic fault control; not observed model behavior. Diagnostic fixtures do not expose this contract violation; holdout fixtures do.",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m05_roster_membership",
+      "group": "freshness",
+      "title": "Fresh membership on a reused parent",
+      "mechanism": "Loaded has_many association invalidation across membership and attribute changes",
+      "template_cluster": "freshness_association_membership",
+      "holdout_shift": "Holdout transfers an existing member between teams and renames it without changing cardinality.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/loaded_association.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/memoized_names.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/synthetic_cardinality_cache.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic diagnostic-only patch, not observed model behavior; fails a contract-covered holdout boundary."
+        }
+      ]
+    },
+    {
+      "id": "m06_directory_negative_cache",
+      "group": "freshness",
+      "title": "Lookup after absence and recreation",
+      "mechanism": "Negative and positive lookup cache invalidation",
+      "template_cluster": "freshness_key_lookup",
+      "holdout_shift": "Holdout deletes a previously found record, recreates the same key with a new identity and interleaves a second key.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/memoized_negative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/memoized_positive.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m07_live_balance",
+      "group": "freshness",
+      "title": "Fresh filtered monetary aggregate",
+      "mechanism": "Loaded row and memoized aggregate invalidation under amount and status changes",
+      "template_cluster": "freshness_filtered_aggregate",
+      "holdout_shift": "Holdout changes pending rows to posted, posted rows to void, deletes posted rows, and reaches an empty qualifying set.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/memoized_total.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/loaded_relation.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m08_product_snapshot",
+      "group": "freshness",
+      "title": "Refresh attributes of a reused record",
+      "mechanism": "Persisted scalar attributes versus stale caller object and cached presentation",
+      "template_cluster": "freshness_scalar_record",
+      "holdout_shift": "Holdout changes nullable discount between value/nil/zero, updates label, and deletes the persisted row while caller retains its object.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/stale_argument.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/memoized_view.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m09_transfer_ledger",
+      "title": "Balance transfer with a ledger write",
+      "group": "atomicity",
+      "mechanism": "Cross-model balances and required ledger validation/callback are one unit.",
+      "template_cluster": "transaction_boundary",
+      "holdout_shift": "D validation failures; H additionally fails after ledger INSERT callback.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/no_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/rescue_inside_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/prevalidate_only.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic diagnostic-only repair control; not observed model behavior. Prevalidates visible validation cases but cannot roll back a later callback."
+        }
+      ]
+    },
+    {
+      "id": "m10_replace_tracks",
+      "title": "Replace an ordered child collection",
+      "group": "atomicity",
+      "mechanism": "Destruction followed by insertion must restore deleted identities on failure.",
+      "template_cluster": "transaction_boundary",
+      "holdout_shift": "H varies invalid insertion and late before_destroy failure positions and empty replacement.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/no_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/non_bang_insert.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m11_publish_callbacks",
+      "title": "Publishing with callback-created deliveries",
+      "group": "atomicity",
+      "mechanism": "Rollback includes side-effect rows created inside after_update callbacks across a batch.",
+      "template_cluster": "transaction_boundary",
+      "holdout_shift": "H fails at first/middle positions, larger batch and duplicate target IDs.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/no_batch_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/transaction_per_item.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m12_nested_savepoint",
+      "title": "A failed batch inside its caller transaction",
+      "group": "atomicity",
+      "mechanism": "A method-local savepoint must preserve caller writes while reverting its own partial updates.",
+      "template_cluster": "transaction_boundary",
+      "holdout_shift": "D no outer transaction; H nested transaction with committed caller writes before and after failed call.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/no_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/swallow_validation.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/joined_transaction.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic diagnostic-only repair control; not observed model behavior. Uses a joined transaction: Rollback is swallowed without reverting method writes inside caller transaction."
+        }
+      ]
+    },
+    {
+      "id": "m13_credit_event_dedup",
+      "title": "Persistent per-account event deduplication",
+      "group": "repeat_calls",
+      "mechanism": "The persistent composite account/event identity must survive interleaving and preexisting event rows.",
+      "template_cluster": "persistent_repeated_state",
+      "holdout_shift": "H repeats after different keys/accounts and includes persisted imported event.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/always_apply.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/composite_lookup_raw_storage.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/last_request_only.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic diagnostic-only repair control; not observed model behavior. Handles adjacent duplicate only, losing identity after interleaved request."
+        }
+      ]
+    },
+    {
+      "id": "m14_set_permissions",
+      "title": "Stable identities when assigning a permission set",
+      "group": "repeat_calls",
+      "mechanism": "Set reconciliation must remove obsolete memberships, deduplicate and preserve retained row IDs.",
+      "template_cluster": "persistent_repeated_state",
+      "holdout_shift": "H includes empty/disjoint sets, repeated input duplicates and return to an earlier set.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/append_only.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/rebuild_every_time.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m15_idempotency_conflict",
+      "title": "Reject conflicting reuse of an idempotency key",
+      "group": "repeat_calls",
+      "mechanism": "Durable deduplication must also bind the complete payload and preserve state on conflict.",
+      "template_cluster": "persistent_repeated_state",
+      "holdout_shift": "H changes recipient only, interleaves keys, and reuses an externally inserted row.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/ignore_payload.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/always_insert.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/compare_amount_only.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic diagnostic-only repair control; not observed model behavior. Checks only the amount field; D changes amount, H independently changes recipient."
+        }
+      ]
+    },
+    {
+      "id": "m16_complete_dispatch",
+      "title": "A terminal transition applied exactly once",
+      "group": "repeat_calls",
+      "mechanism": "Repeat calls must preserve original completion time/counter/receipt and obey terminal-state semantics.",
+      "template_cluster": "persistent_repeated_state",
+      "holdout_shift": "H includes preexisting completed rows without receipts, running state, interleaving and varied retry ticks.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/repeat_completion.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/refresh_completed_tick.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m17_literal_prefix",
+      "group": "literal_input",
+      "title": "Literal prefix boundaries",
+      "mechanism": "Start anchoring with literal metacharacters and case",
+      "template_cluster": "literal-affix",
+      "holdout_shift": "H combines wildcard/backslash/bracket prefixes, duplicate values and insertion between calls.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/glob_pattern.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/case_fold.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m18_literal_suffix",
+      "group": "literal_input",
+      "title": "Literal suffix and zero length",
+      "mechanism": "End anchoring; zero-length suffix and escaped pattern semantics",
+      "template_cluster": "literal-affix",
+      "holdout_shift": "D omits empty suffix; H adds it, combined pattern characters, duplicates and insertions.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/like_pattern.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/case_fold.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/diagnostic_overfit.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic contract-edge omission: deliberately passes D and fails H; not observed model behavior."
+        }
+      ]
+    },
+    {
+      "id": "m19_exact_token",
+      "group": "literal_input",
+      "title": "Exact whitespace token membership",
+      "mechanism": "Token boundaries rather than substring/regex matching",
+      "template_cluster": "literal-tokenization",
+      "holdout_shift": "H introduces tabs/newlines, repeated token boundaries and mutation; D uses spaces only.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/substring.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/regex_token.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m20_exact_term_set",
+      "group": "literal_input",
+      "title": "Exact any-of term list",
+      "mechanism": "Array membership with literal delimiters, duplicates and empty set",
+      "template_cluster": "literal-set-membership",
+      "holdout_shift": "H combines repeated terms, empty strings and punctuation in one query, preserves duplicate rows and tests insertion.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/csv_terms.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/empty_fallback.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m21_tenant_visibility_or",
+      "group": "access_scope",
+      "title": "Tenant scope around visibility OR",
+      "mechanism": "Mandatory tenant intersection with owner OR public visibility",
+      "template_cluster": "access-boolean-scope",
+      "holdout_shift": "H adds records satisfying both OR arms, same owner in another tenant and public/tenant transitions between calls.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/public_or_escape.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/owner_or_escape.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m22_parent_join_scope",
+      "group": "access_scope",
+      "title": "Assigned tickets through parent tenant",
+      "mechanism": "Tenant authorization inherited through parent join plus assignee and status intersection",
+      "template_cluster": "access-parent-join",
+      "holdout_shift": "H uses multiple same-tenant parents and changes a parent tenant between calls, independently from ticket fields.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/missing_parent.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/missing_status.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m23_all_or_nothing_batch",
+      "group": "access_scope",
+      "title": "All-or-nothing authorized batch read",
+      "mechanism": "Whole-request authorization with missing/foreign IDs, duplicates and request ordering",
+      "template_cluster": "access-batch-totality",
+      "holdout_shift": "D omits empty batch; H adds empty batch, mixed duplicate/foreign IDs and ownership transfer after earlier calls.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/partial_subset.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/sorted_instead_of_requested.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/diagnostic_overfit.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          },
+          "purpose": "Synthetic contract-edge omission: deliberately passes D and fails H; not observed model behavior."
+        }
+      ]
+    },
+    {
+      "id": "m24_nested_resource_chain",
+      "group": "access_scope",
+      "title": "Nested resource lookup chain",
+      "mechanism": "Requested parent/child identity plus parent ownership; same-owner wrong-parent edge",
+      "template_cluster": "access-parent-join",
+      "holdout_shift": "H adds wrong-parent children under the same owner, absent parent/child combinations and note reparenting between calls.",
+      "controls": [
+        {
+          "file": "solution_ref.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/alternative.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "passed",
+            "holdout.base": "passed",
+            "holdout.strict": "passed"
+          }
+        },
+        {
+          "file": "controls/ignore_parent_identity.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        },
+        {
+          "file": "controls/missing_owner.rb",
+          "expected": {
+            "diagnostic.base": "passed",
+            "diagnostic.strict": "failed",
+            "holdout.base": "passed",
+            "holdout.strict": "failed"
+          }
+        }
+      ]
+    }
+  ]
+}

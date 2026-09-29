@@ -1,0 +1,626 @@
+[
+  {
+    "root": "gemini/m17_literal_prefix/0",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m17_literal_prefix/0",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m15_idempotency_conflict/0",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m13_credit_event_dedup/0",
+    "A": false,
+    "B": true,
+    "C": true
+  },
+  {
+    "root": "local/m12_nested_savepoint/0",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m18_literal_suffix/0",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m19_exact_token/0",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m19_exact_token/0",
+    "A": false,
+    "B": true,
+    "C": true
+  },
+  {
+    "root": "gemini/m19_exact_token/0",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m13_credit_event_dedup/1",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m03_tag_intersection/1",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m18_literal_suffix/1",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m18_literal_suffix/1",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m18_literal_suffix/1",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m15_idempotency_conflict/1",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m19_exact_token/1",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m17_literal_prefix/1",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m17_literal_prefix/1",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m17_literal_prefix/1",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m12_nested_savepoint/1",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m17_literal_prefix/2",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m17_literal_prefix/2",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m17_literal_prefix/2",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "gemini/m12_nested_savepoint/2",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m12_nested_savepoint/2",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m15_idempotency_conflict/2",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m13_credit_event_dedup/2",
+    "A": false,
+    "B": true,
+    "C": true
+  },
+  {
+    "root": "local/m18_literal_suffix/2",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m19_exact_token/3",
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  {
+    "root": "local/m12_nested_savepoint/3",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m12_nested_savepoint/3",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m18_literal_suffix/3",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m18_literal_suffix/3",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m18_literal_suffix/3",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "gemini/m17_literal_prefix/3",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m17_literal_prefix/3",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m17_literal_prefix/3",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m13_credit_event_dedup/3",
+    "A": false,
+    "B": true,
+    "C": true
+  },
+  {
+    "root": "local/m15_idempotency_conflict/3",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m18_literal_suffix/4",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m18_literal_suffix/4",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m18_literal_suffix/4",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m17_literal_prefix/4",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m17_literal_prefix/4",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m13_credit_event_dedup/4",
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  {
+    "root": "gemini/m19_exact_token/4",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m12_nested_savepoint/4",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m12_nested_savepoint/4",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m10_replace_tracks/4",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m15_idempotency_conflict/4",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m13_credit_event_dedup/5",
+    "A": false,
+    "B": true,
+    "C": true
+  },
+  {
+    "root": "gemini/m17_literal_prefix/5",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m17_literal_prefix/5",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m18_literal_suffix/5",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m18_literal_suffix/5",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m03_tag_intersection/5",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m15_idempotency_conflict/5",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m19_exact_token/5",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "gemini/m19_exact_token/5",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m12_nested_savepoint/5",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m10_replace_tracks/5",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m17_literal_prefix/6",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m17_literal_prefix/6",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m10_replace_tracks/6",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m19_exact_token/6",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m19_exact_token/6",
+    "A": false,
+    "B": true,
+    "C": true
+  },
+  {
+    "root": "local/m15_idempotency_conflict/6",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m03_tag_intersection/6",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m12_nested_savepoint/6",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m12_nested_savepoint/6",
+    "A": false,
+    "B": true,
+    "C": true
+  },
+  {
+    "root": "gemini/m12_nested_savepoint/6",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "anthropic/m18_literal_suffix/6",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m18_literal_suffix/6",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m18_literal_suffix/6",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m13_credit_event_dedup/6",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m15_idempotency_conflict/7",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m12_nested_savepoint/7",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m18_literal_suffix/7",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m18_literal_suffix/7",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m18_literal_suffix/7",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m13_credit_event_dedup/7",
+    "A": false,
+    "B": true,
+    "C": true
+  },
+  {
+    "root": "gemini/m17_literal_prefix/7",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m17_literal_prefix/7",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m17_literal_prefix/8",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m17_literal_prefix/8",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m12_nested_savepoint/8",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m12_nested_savepoint/8",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m18_literal_suffix/8",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m18_literal_suffix/8",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m18_literal_suffix/8",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "anthropic/m13_credit_event_dedup/8",
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  {
+    "root": "local/m15_idempotency_conflict/8",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m03_tag_intersection/8",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m13_credit_event_dedup/9",
+    "A": false,
+    "B": true,
+    "C": true
+  },
+  {
+    "root": "local/m17_literal_prefix/9",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m17_literal_prefix/9",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m11_publish_callbacks/9",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m12_nested_savepoint/9",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m15_idempotency_conflict/9",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m18_literal_suffix/9",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m18_literal_suffix/9",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "gemini/m18_literal_suffix/9",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "local/m03_tag_intersection/9",
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  {
+    "root": "anthropic/m10_replace_tracks/9",
+    "A": false,
+    "B": true,
+    "C": false
+  }
+]

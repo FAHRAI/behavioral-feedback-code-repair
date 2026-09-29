@@ -1,0 +1,10 @@
+{
+  "sizes": [
+    3,
+    8,
+    17
+  ],
+  "ties": true,
+  "empty": true,
+  "late_lower_tick": true
+}

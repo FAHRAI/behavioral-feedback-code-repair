@@ -1,0 +1,8 @@
+{
+ "utc": "2026-09-28T17:57:16.551978+00:00",
+ "sha256": {
+  "protocol_v3_signal.md": "8e17f83116a894e0c167d466d6848560f4a2693200fc7173d3b3591808f99de9",
+  "runner_v3_signal.py": "5748d81c413b672f2a71745694da298dd0c0d5aaec5ce647ffdc279607504d59"
+ },
+ "note": "Frozen before any Q generation. Checked: Q length equals C on all 150 S* roots; offline smoke passed."
+}

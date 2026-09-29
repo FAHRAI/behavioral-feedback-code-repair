@@ -1,0 +1,10 @@
+{
+  "size": 5,
+  "failure_positions": [
+    0,
+    2,
+    3
+  ],
+  "repeated": true,
+  "existing_published": true
+}

@@ -1,0 +1,31 @@
+{
+  "values": [
+    "red blue",
+    "redder",
+    "blue red",
+    "Red",
+    "a.b",
+    "axb",
+    "[ab]",
+    "a",
+    "b",
+    "x+y",
+    "xxy",
+    "100%",
+    "a_b"
+  ],
+  "ordinary": [
+    "blue",
+    "absent"
+  ],
+  "behavior": [
+    "red",
+    "Red",
+    "a.b",
+    "[ab]",
+    "x+y",
+    "100%",
+    "a_b",
+    ""
+  ]
+}

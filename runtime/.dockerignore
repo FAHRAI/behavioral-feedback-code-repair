@@ -1,0 +1,4 @@
+*
+!Dockerfile
+!install.rb
+!gems.lock.json

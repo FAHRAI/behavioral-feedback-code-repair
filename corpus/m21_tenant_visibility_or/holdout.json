@@ -1,0 +1,63 @@
+{
+  "documents": [
+    {
+      "id": 11,
+      "tenant_id": 40,
+      "owner_id": 4,
+      "public": true
+    },
+    {
+      "id": 12,
+      "tenant_id": 40,
+      "owner_id": 5,
+      "public": false
+    },
+    {
+      "id": 13,
+      "tenant_id": 50,
+      "owner_id": 4,
+      "public": true
+    },
+    {
+      "id": 14,
+      "tenant_id": 60,
+      "owner_id": 6,
+      "public": false
+    }
+  ],
+  "ordinary": [
+    [
+      50,
+      4
+    ]
+  ],
+  "behavior": [
+    [
+      40,
+      4
+    ],
+    [
+      60,
+      4
+    ],
+    [
+      777,
+      4
+    ]
+  ],
+  "changes": [
+    {
+      "id": 12,
+      "attributes": {
+        "public": true
+      }
+    },
+    {
+      "id": 11,
+      "attributes": {
+        "tenant_id": 60,
+        "public": false
+      }
+    }
+  ]
+}

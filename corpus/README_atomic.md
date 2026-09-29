@@ -1,0 +1,7 @@
+# Atomicity and repeated-call families
+
+Eight hand-authored synthetic Rails/SQLite scenarios. These share implementation idioms and their template_cluster metadata deliberately records family dependency; they are not eight independent samples from all Rails software. Atomicity m09/m11 share a multiwrite transaction boundary but distinguish required ledger validation and callback-generated side effects; m10 requires identity-preserving rollback of deleted children; m12 requires savepoint isolation from caller-owned writes. Repeated-call tasks distinguish composite event identity, set reconciliation preserving identity, complete payload binding, and terminal-state effects. No concurrency guarantees are measured.
+
+Synthetic D-pass/H-fail controls are explicitly named in the fragment manifest: m09 prevalidate_only, m12 joined_transaction, m13 last_request_only, m15 compare_amount_only. These demonstrate held-out test discrimination, not observed model overfitting. H changes failure lifecycle or state sequence rather than only fixture names. Diagnostic cases are intentionally incomplete; prompts state the full contract.
+
+Expected outcomes must be verified through the shared sandbox audit before freezing. All broken controls are designed to pass base and fail strict through assertions, not unexpected runtime errors. SQL uniqueness/concurrency or production security are outside this corpus.

@@ -1,0 +1,9 @@
+{
+ "utc": "2026-09-28T13:46:54.957734+00:00",
+ "sha256": {
+  "protocol.md": "902fbb60b947d3d7fee5363784abe475b1d683e93ca1f948b000a4c947485eab",
+  "runner_v2.py": "0467b78b2fc0cc7244ce80269e616b91510ff06872e6c13baf9278696bd9460a",
+  "analyze_v2.py": "9884cd4fdf8c0e6a3386d67643a7ec9f2f23aeb6495cca5e04c8cd3817b2596e"
+ },
+ "note": "Frozen before any v2 API call. Before freezing: offline smoke (reference solutions, no API) passed; analyze_v2 reproduced the main-experiment S* counts (104 roots, B 12, C 25) with P:=B; placebo length matched C exactly on all 960 archived roots."
+}

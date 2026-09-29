@@ -1,0 +1,13 @@
+{
+  "sizes": [
+    3,
+    8,
+    17
+  ],
+  "types": [
+    "Photo",
+    "Video",
+    "Document"
+  ],
+  "dangling": true
+}

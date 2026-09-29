@@ -1,0 +1,290 @@
+{
+  "roots": 1080,
+  "state_roots": 150,
+  "confirmatory": {
+    "state_by_provider": {
+      "anthropic": 37,
+      "gemini": 42,
+      "local": 71
+    },
+    "state_clusters": [
+      "access-batch-totality",
+      "freshness_scalar_record",
+      "literal-affix",
+      "literal-tokenization",
+      "persistent_repeated_state",
+      "query_groupwise_max",
+      "query_many_to_many_intersection",
+      "transaction_boundary"
+    ],
+    "repaired_in_state": {
+      "B": 18,
+      "C": 40,
+      "P": 20
+    },
+    "H1_C_minus_B": {
+      "estimate": 0.14666666666666667,
+      "lower": 0.05357142857142857,
+      "upper": 0.1951219512195122,
+      "x_only": 25,
+      "y_only": 3,
+      "decision": "confirmed"
+    },
+    "H2_C_minus_P": {
+      "estimate": 0.13333333333333333,
+      "lower": 0.044642857142857144,
+      "upper": 0.2,
+      "x_only": 22,
+      "y_only": 2,
+      "decision": "confirmed"
+    },
+    "P_minus_B": {
+      "estimate": 0.013333333333333334,
+      "lower": -0.03125,
+      "upper": 0.030120481927710843,
+      "x_only": 4,
+      "y_only": 2
+    },
+    "C_minus_B_by_cluster": {
+      "access-batch-totality": 0,
+      "freshness_scalar_record": 0,
+      "literal-affix": 11,
+      "literal-tokenization": 1,
+      "persistent_repeated_state": 2,
+      "query_groupwise_max": 0,
+      "query_many_to_many_intersection": 0,
+      "transaction_boundary": 8
+    },
+    "all_roots": {
+      "accepted": {
+        "A": 643,
+        "B": 724,
+        "C": 748,
+        "P": 710
+      },
+      "repairs": {
+        "B": 82,
+        "C": 108,
+        "P": 69
+      },
+      "regressions": {
+        "B": 1,
+        "C": 3,
+        "P": 2
+      },
+      "initial_failures": 437,
+      "equal_cell": {
+        "C_minus_B": {
+          "estimate": 0.02222222222222222,
+          "lower": -0.005291005291005292,
+          "upper": 0.044444444444444446
+        },
+        "C_minus_P": {
+          "estimate": 0.03518518518518518,
+          "lower": 0.008187134502923977,
+          "upper": 0.06172839506172839
+        },
+        "P_minus_B": {
+          "estimate": -0.012962962962962963,
+          "lower": -0.032,
+          "upper": 0.002898550724637681
+        }
+      }
+    },
+    "by_provider": {
+      "anthropic": {
+        "roots": 360,
+        "state_roots": 37,
+        "repaired_in_state": {
+          "B": 18,
+          "C": 30,
+          "P": 20
+        }
+      },
+      "gemini": {
+        "roots": 360,
+        "state_roots": 42,
+        "repaired_in_state": {
+          "B": 0,
+          "C": 10,
+          "P": 0
+        }
+      },
+      "local": {
+        "roots": 360,
+        "state_roots": 71,
+        "repaired_in_state": {
+          "B": 0,
+          "C": 0,
+          "P": 0
+        }
+      }
+    }
+  },
+  "addendum": {
+    "repaired_in_state": {
+      "B": 18,
+      "C": 40,
+      "P": 20,
+      "Q": 42
+    },
+    "H3_C_minus_Q": {
+      "estimate": -0.013333333333333334,
+      "lower": -0.0297029702970297,
+      "upper": 0.0,
+      "x_only": 4,
+      "y_only": 6,
+      "decision": "not_confirmed"
+    },
+    "Q_minus_B": {
+      "estimate": 0.16,
+      "lower": 0.06666666666666667,
+      "upper": 0.21951219512195122,
+      "x_only": 24,
+      "y_only": 0
+    },
+    "Q_minus_P": {
+      "estimate": 0.14666666666666667,
+      "lower": 0.06666666666666667,
+      "upper": 0.2222222222222222,
+      "x_only": 23,
+      "y_only": 1
+    },
+    "C_minus_Q_by_cluster": {
+      "access-batch-totality": 0,
+      "freshness_scalar_record": 0,
+      "literal-affix": 0,
+      "literal-tokenization": 0,
+      "persistent_repeated_state": -1,
+      "query_groupwise_max": 0,
+      "query_many_to_many_intersection": 0,
+      "transaction_boundary": -1
+    },
+    "by_provider": {
+      "anthropic": {
+        "repaired": {
+          "B": 18,
+          "C": 30,
+          "P": 20,
+          "Q": 32
+        },
+        "unchanged": {
+          "B": 12,
+          "C": 0,
+          "P": 8,
+          "Q": 0
+        }
+      },
+      "gemini": {
+        "repaired": {
+          "B": 0,
+          "C": 10,
+          "P": 0,
+          "Q": 9
+        },
+        "unchanged": {
+          "B": 13,
+          "C": 0,
+          "P": 13,
+          "Q": 1
+        }
+      },
+      "local": {
+        "repaired": {
+          "B": 0,
+          "C": 0,
+          "P": 0,
+          "Q": 1
+        },
+        "unchanged": {
+          "B": 67,
+          "C": 59,
+          "P": 69,
+          "Q": 62
+        }
+      }
+    },
+    "signal": {
+      "length_matched": true,
+      "repetitions": [
+        3,
+        25
+      ],
+      "input_tokens": {
+        "C": 132840,
+        "Q": 123361
+      },
+      "usd": 0.2624177
+    }
+  },
+  "costs": {
+    "confirmatory": {
+      "branches": {
+        "A": {
+          "accepted": 643,
+          "input_tokens": 390465,
+          "output_tokens": 179576,
+          "usd": 1.23005
+        },
+        "B": {
+          "accepted": 724,
+          "input_tokens": 864978,
+          "output_tokens": 158697,
+          "usd": 1.5980116
+        },
+        "C": {
+          "accepted": 748,
+          "input_tokens": 1022086,
+          "output_tokens": 169529,
+          "usd": 1.7680834
+        },
+        "P": {
+          "accepted": 710,
+          "input_tokens": 952947,
+          "output_tokens": 159209,
+          "usd": 1.6785344
+        }
+      },
+      "total_usd": 6.2746794,
+      "C_vs_B": {
+        "extra_accepted": 24,
+        "extra_input_tokens": 157108,
+        "extra_usd": 0.1700718000000001,
+        "usd_per_extra_accepted": 0.007086325000000004
+      }
+    },
+    "main": {
+      "branches": {
+        "A": {
+          "accepted": 660,
+          "input_tokens": 329060,
+          "output_tokens": 237125,
+          "usd": 0.86355875
+        },
+        "B": {
+          "accepted": 720,
+          "input_tokens": 718745,
+          "output_tokens": 186522,
+          "usd": 1.1144272
+        },
+        "C": {
+          "accepted": 736,
+          "input_tokens": 844133,
+          "output_tokens": 194589,
+          "usd": 1.2884207
+        }
+      },
+      "total_usd": 3.26640665,
+      "C_vs_B": {
+        "extra_accepted": 16,
+        "extra_input_tokens": 125388,
+        "extra_usd": 0.17399350000000013,
+        "usd_per_extra_accepted": 0.010874593750000008
+      },
+      "unchanged_in_state": {
+        "B": 67,
+        "C": 41
+      }
+    }
+  }
+}

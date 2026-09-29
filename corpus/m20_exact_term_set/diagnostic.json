@@ -1,0 +1,41 @@
+{
+  "values": [
+    "red",
+    "blue",
+    "Red",
+    "red,blue",
+    " padded ",
+    "padded",
+    "100%",
+    "a_b",
+    ""
+  ],
+  "ordinary": [
+    [
+      "red"
+    ],
+    [
+      "absent"
+    ]
+  ],
+  "behavior": [
+    [
+      "Red"
+    ],
+    [
+      "red,blue"
+    ],
+    [
+      " padded "
+    ],
+    [],
+    [
+      "red",
+      "red"
+    ],
+    [
+      "100%",
+      "a_b"
+    ]
+  ]
+}

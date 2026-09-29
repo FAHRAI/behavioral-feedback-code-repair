@@ -1,0 +1,54 @@
+{
+  "documents": [
+    {
+      "id": 1,
+      "tenant_id": 10,
+      "owner_id": 1,
+      "public": false
+    },
+    {
+      "id": 2,
+      "tenant_id": 10,
+      "owner_id": 2,
+      "public": true
+    },
+    {
+      "id": 3,
+      "tenant_id": 20,
+      "owner_id": 3,
+      "public": false
+    },
+    {
+      "id": 4,
+      "tenant_id": 20,
+      "owner_id": 3,
+      "public": true
+    },
+    {
+      "id": 5,
+      "tenant_id": 30,
+      "owner_id": 1,
+      "public": false
+    }
+  ],
+  "ordinary": [
+    [
+      20,
+      3
+    ]
+  ],
+  "behavior": [
+    [
+      10,
+      1
+    ],
+    [
+      30,
+      2
+    ],
+    [
+      999,
+      1
+    ]
+  ]
+}

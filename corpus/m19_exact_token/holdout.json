@@ -1,0 +1,29 @@
+{
+  "values": [
+    "oak\tmaple",
+    "oakish",
+    "Maple",
+    "x.y\nleaf",
+    "xyy leaf",
+    "[xy]\r\nroot",
+    "x root",
+    "oak\fmaple",
+    "oak\u000bmaple"
+  ],
+  "ordinary": [
+    "leaf",
+    "absent"
+  ],
+  "behavior": [
+    "oak",
+    "maple",
+    "Maple",
+    "x.y",
+    "[xy]",
+    ""
+  ],
+  "mutations": [
+    "oak\tnew",
+    "[xy]\n[xy]"
+  ]
+}

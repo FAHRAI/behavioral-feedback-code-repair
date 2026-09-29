@@ -1,0 +1,17 @@
+{
+  "conflicts": [
+    [
+      12,
+      "Other"
+    ],
+    [
+      13,
+      "Ada"
+    ],
+    [
+      13,
+      "Other"
+    ]
+  ],
+  "interleaved": true
+}

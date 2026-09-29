@@ -1,0 +1,11 @@
+{
+  "old": [
+    "old a",
+    "old b"
+  ],
+  "invalid_positions": [
+    1
+  ],
+  "blocked_positions": [],
+  "empty": false
+}

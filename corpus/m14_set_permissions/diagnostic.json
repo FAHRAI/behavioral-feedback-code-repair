@@ -1,0 +1,15 @@
+{
+  "sequence": [
+    [
+      "read",
+      "write"
+    ],
+    [
+      "write",
+      "read"
+    ],
+    [
+      "read"
+    ]
+  ]
+}

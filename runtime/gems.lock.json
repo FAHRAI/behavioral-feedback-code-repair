@@ -1,0 +1,762 @@
+{
+  "ruby": "3.3.11",
+  "platform": "aarch64-linux",
+  "gems": [
+    {
+      "name": "abbrev",
+      "version": "0.1.2",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "actionpack",
+      "version": "7.2.3.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "actionview",
+      "version": "7.2.3.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "activemodel",
+      "version": "7.2.3.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "activerecord",
+      "version": "7.2.3.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "activesupport",
+      "version": "7.2.3.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "ast",
+      "version": "2.4.3",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "base64",
+      "version": "0.2.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "benchmark",
+      "version": "0.3.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "bigdecimal",
+      "version": "3.1.5",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "builder",
+      "version": "3.3.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "bundler",
+      "version": "2.5.22",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "cgi",
+      "version": "0.4.2",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "concurrent-ruby",
+      "version": "1.3.7",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "connection_pool",
+      "version": "3.0.2",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "crass",
+      "version": "1.0.6",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "csv",
+      "version": "3.2.8",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "date",
+      "version": "3.3.4",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "debug",
+      "version": "1.9.2",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "delegate",
+      "version": "0.3.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "did_you_mean",
+      "version": "1.6.3",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "diff-lcs",
+      "version": "1.6.2",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "digest",
+      "version": "3.1.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "drb",
+      "version": "2.2.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "english",
+      "version": "0.8.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "erb",
+      "version": "4.0.3",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "error_highlight",
+      "version": "0.6.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "erubi",
+      "version": "1.13.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "etc",
+      "version": "1.4.3",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "fcntl",
+      "version": "1.1.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "fiddle",
+      "version": "1.1.2",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "fileutils",
+      "version": "1.7.2",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "find",
+      "version": "0.2.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "forwardable",
+      "version": "1.3.3",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "getoptlong",
+      "version": "0.2.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "i18n",
+      "version": "1.15.2",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "io-console",
+      "version": "0.7.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "io-nonblock",
+      "version": "0.3.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "io-wait",
+      "version": "0.3.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "ipaddr",
+      "version": "1.2.6",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "irb",
+      "version": "1.13.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "json",
+      "version": "2.7.2",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "language_server-protocol",
+      "version": "3.17.0.5",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "lint_roller",
+      "version": "1.1.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "logger",
+      "version": "1.6.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "loofah",
+      "version": "2.25.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "matrix",
+      "version": "0.4.2",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "minitest",
+      "version": "5.20.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "mutex_m",
+      "version": "0.2.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "net-ftp",
+      "version": "0.3.4",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "net-http",
+      "version": "0.4.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "net-imap",
+      "version": "0.4.21",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "net-pop",
+      "version": "0.1.2",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "net-protocol",
+      "version": "0.2.2",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "net-smtp",
+      "version": "0.5.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "nkf",
+      "version": "0.1.3",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "nokogiri",
+      "version": "1.19.4",
+      "platform": "aarch64-linux-gnu",
+      "default": false
+    },
+    {
+      "name": "observer",
+      "version": "0.1.2",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "open-uri",
+      "version": "0.4.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "open3",
+      "version": "0.2.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "openssl",
+      "version": "3.2.2",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "optparse",
+      "version": "0.4.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "ostruct",
+      "version": "0.6.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "parallel",
+      "version": "2.1.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "parser",
+      "version": "3.3.11.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "pathname",
+      "version": "0.3.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "power_assert",
+      "version": "2.0.3",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "pp",
+      "version": "0.5.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "prettyprint",
+      "version": "0.2.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "prime",
+      "version": "0.1.2",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "prism",
+      "version": "0.19.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "prism",
+      "version": "1.9.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "pstore",
+      "version": "0.2.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "psych",
+      "version": "5.1.2",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "racc",
+      "version": "1.7.3",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rack",
+      "version": "3.2.6",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rack-session",
+      "version": "2.1.2",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rack-test",
+      "version": "2.2.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rails-dom-testing",
+      "version": "2.3.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rails-html-sanitizer",
+      "version": "1.7.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rainbow",
+      "version": "3.1.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rake",
+      "version": "13.1.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rbs",
+      "version": "3.4.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rdoc",
+      "version": "6.6.3.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "readline",
+      "version": "0.0.4",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "regexp_parser",
+      "version": "2.12.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "reline",
+      "version": "0.5.10",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "resolv",
+      "version": "0.3.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "resolv-replace",
+      "version": "0.1.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "rexml",
+      "version": "3.4.4",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rinda",
+      "version": "0.2.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "rspec",
+      "version": "3.13.2",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rspec-core",
+      "version": "3.13.6",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rspec-expectations",
+      "version": "3.13.5",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rspec-mocks",
+      "version": "3.13.8",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rspec-support",
+      "version": "3.13.7",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rss",
+      "version": "0.3.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rubocop",
+      "version": "1.88.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "rubocop-ast",
+      "version": "1.49.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "ruby-progressbar",
+      "version": "1.13.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "ruby2_keywords",
+      "version": "0.0.5",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "securerandom",
+      "version": "0.3.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "set",
+      "version": "1.1.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "shellwords",
+      "version": "0.2.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "singleton",
+      "version": "0.2.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "sqlite3",
+      "version": "2.9.5",
+      "platform": "aarch64-linux-gnu",
+      "default": false
+    },
+    {
+      "name": "stringio",
+      "version": "3.1.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "strscan",
+      "version": "3.0.9",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "syntax_suggest",
+      "version": "2.0.3",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "syslog",
+      "version": "0.1.2",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "tempfile",
+      "version": "0.2.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "test-unit",
+      "version": "3.6.1",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "time",
+      "version": "0.3.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "timeout",
+      "version": "0.4.1",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "tmpdir",
+      "version": "0.2.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "tsort",
+      "version": "0.2.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "typeprof",
+      "version": "0.21.9",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "tzinfo",
+      "version": "2.0.6",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "un",
+      "version": "0.3.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "unicode-display_width",
+      "version": "3.2.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "unicode-emoji",
+      "version": "4.2.0",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "uri",
+      "version": "0.13.3",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "useragent",
+      "version": "0.16.11",
+      "platform": "ruby",
+      "default": false
+    },
+    {
+      "name": "weakref",
+      "version": "0.1.3",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "yaml",
+      "version": "0.3.0",
+      "platform": "ruby",
+      "default": true
+    },
+    {
+      "name": "zlib",
+      "version": "3.1.2",
+      "platform": "ruby",
+      "default": true
+    }
+  ]
+}

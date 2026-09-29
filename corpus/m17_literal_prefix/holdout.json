@@ -1,0 +1,28 @@
+{
+  "values": [
+    "root",
+    "rooted",
+    "uproot",
+    "Root",
+    "*?_[x]\\tail",
+    "*?_xxx",
+    "*?_[x]\\tail",
+    "' OR 1=1 --"
+  ],
+  "ordinary": [
+    "rooted",
+    "absent",
+    ""
+  ],
+  "behavior": [
+    "ROOT",
+    "Root",
+    "*?_[x]\\",
+    "' OR 1=1",
+    "*?_"
+  ],
+  "mutations": [
+    "*?_[x]\\new",
+    "ROOTnew"
+  ]
+}

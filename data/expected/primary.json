@@ -1,0 +1,70 @@
+{
+  "scope": "Descriptive paired contrast; conditional bootstrap sensitivity only.",
+  "scenarios": 24,
+  "clusters": 16,
+  "models": 4,
+  "initial_answers": 960,
+  "C_minus_B": 0.016666666666666666,
+  "bootstrap": {
+    "method": "percentile; clusters within fixed families; paired repeats",
+    "replicates": 10000,
+    "seed": 24092028,
+    "interval_95": [
+      -0.004166666666666667,
+      0.03229166666666667
+    ],
+    "degenerate": false
+  },
+  "groups": [
+    {
+      "group": "access_scope",
+      "scenarios": 4,
+      "clusters": 3,
+      "C_minus_B": 0.025
+    },
+    {
+      "group": "atomicity",
+      "scenarios": 4,
+      "clusters": 1,
+      "C_minus_B": 0.012499999999999999
+    },
+    {
+      "group": "freshness",
+      "scenarios": 4,
+      "clusters": 4,
+      "C_minus_B": 0
+    },
+    {
+      "group": "literal_input",
+      "scenarios": 4,
+      "clusters": 3,
+      "C_minus_B": 0.075
+    },
+    {
+      "group": "queries",
+      "scenarios": 4,
+      "clusters": 4,
+      "C_minus_B": -0.025
+    },
+    {
+      "group": "repeat_calls",
+      "scenarios": 4,
+      "clusters": 1,
+      "C_minus_B": 0.0125
+    }
+  ],
+  "leave_one_group_out": {
+    "access_scope": 0.015,
+    "atomicity": 0.0175,
+    "freshness": 0.02,
+    "literal_input": 0.005,
+    "queries": 0.025,
+    "repeat_calls": 0.017499999999999998
+  },
+  "warnings": [
+    "Purposively designed corpus: no population ranking or design-based Rails inference.",
+    "Fixed model configurations and fixed requirement families; not randomly sampled models.",
+    "The larger C context is part of the intervention, not controlled away.",
+    "Single-cluster strata have no estimated scenario-composition variation: atomicity, repeat_calls"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "values": [
+    "oak",
+    "Oak",
+    "oak,maple",
+    "maple",
+    "",
+    "",
+    " x ",
+    "x",
+    "' OR 1=1 --"
+  ],
+  "ordinary": [
+    [
+      "oak"
+    ],
+    [
+      "absent"
+    ]
+  ],
+  "behavior": [
+    [],
+    [
+      ""
+    ],
+    [
+      "",
+      "oak,maple",
+      "oak,maple"
+    ],
+    [
+      " x "
+    ],
+    [
+      "' OR 1=1 --"
+    ],
+    [
+      "Oak",
+      "oak"
+    ]
+  ],
+  "mutations": [
+    "",
+    "oak,maple"
+  ]
+}

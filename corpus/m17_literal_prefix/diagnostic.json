@@ -1,0 +1,31 @@
+{
+  "values": [
+    "alpha",
+    "alphabet",
+    "xalpha",
+    "Alpha",
+    "a*b",
+    "axb",
+    "a?b",
+    "a[b]",
+    "a_b",
+    "100%",
+    "path\\leaf",
+    "O'Neil"
+  ],
+  "ordinary": [
+    "alphabet",
+    "missing",
+    ""
+  ],
+  "behavior": [
+    "Alpha",
+    "a*",
+    "a?",
+    "a[",
+    "a_",
+    "100%",
+    "path\\",
+    "O'"
+  ]
+}

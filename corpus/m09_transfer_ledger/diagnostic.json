@@ -1,0 +1,7 @@
+{
+  "failures": [
+    "memo",
+    "funds"
+  ],
+  "preserve_existing": false
+}

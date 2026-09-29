@@ -1,0 +1,9 @@
+{
+  "states": [
+    "completed",
+    "running",
+    "pending",
+    "cancelled"
+  ],
+  "interleaved": true
+}

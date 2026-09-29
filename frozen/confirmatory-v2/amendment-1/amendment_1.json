@@ -1,0 +1,10 @@
+{
+ "utc": "2026-09-28T13:49:46.864617+00:00",
+ "reason": "Gemini returned HTTP 503 'high demand' twice (20 s apart) for one repair request (gemini/m22_parent_join_scope/0/C); no answer was obtained and the run stopped after 8 completed generations.",
+ "change": "Transport-only: up to 8 attempts with backoff 30,60,120,240,300,300,300 s; --resume mode that reuses saved answers and evaluations, re-evaluates saved answers without evaluations, and retries only requests without an answer (failed records kept in failed-requests/). Prompts, branches, schedule, models, evaluation and analysis unchanged.",
+ "original_runner_sha256": "0467b78b2fc0cc7244ce80269e616b91510ff06872e6c13baf9278696bd9460a",
+ "sha256": {
+  "runner_v2.py": "2f2c3a9c02fbc8ffaf4fec7fd779c4664c1d3714a6d096ad2b8a7936771379a1"
+ },
+ "tested": "offline smoke + resume test (A unchanged, B re-evaluated without regeneration, failed P retried)"
+}

@@ -1,0 +1,27 @@
+{
+  "values": [
+    "left.bin",
+    "right.bin",
+    "BIN",
+    "tail%_\\",
+    "tailAA\\",
+    "suffix",
+    "suffix",
+    ""
+  ],
+  "ordinary": [
+    ".bin",
+    "absent"
+  ],
+  "behavior": [
+    "",
+    "BIN",
+    "bin",
+    "%_\\",
+    "\\"
+  ],
+  "mutations": [
+    "new%_\\",
+    ""
+  ]
+}

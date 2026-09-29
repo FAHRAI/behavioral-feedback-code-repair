@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "behavioral-feedback-study"
+version = "1.0.0"
+description = "Reproduction materials for paired repair of LLM-generated code"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "MIT"
+authors = [
+    { name = "Oleksandr Kholodniak", email = "o.o.kholodniak@khai.edu" },
+    { name = "Oleksandr Prokhorov", email = "o.prokhorov@khai.edu" },
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "ruff==0.15.18", "setuptools==80.9.0"]
+
+[project.scripts]
+feedback-study = "feedback_study.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".evidence", "releases", "outputs", "frozen"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

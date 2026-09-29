@@ -1,0 +1,713 @@
+{
+  "scope": "Post hoc sensitivity; fixed configurations; purposive corpus",
+  "overall": {
+    "n": 960,
+    "B": 720,
+    "C": 736,
+    "C_minus_B_pp": 1.6666666666666667,
+    "C_only": 25,
+    "B_only": 9
+  },
+  "estimate": 0.016666666666666666,
+  "task_means": {
+    "m01_polymorphic_feed": -0.1,
+    "m02_latest_reading": 0,
+    "m03_tag_intersection": 0,
+    "m04_conditional_totals": 0,
+    "m05_roster_membership": 0,
+    "m06_directory_negative_cache": 0,
+    "m07_live_balance": 0,
+    "m08_product_snapshot": 0,
+    "m09_transfer_ledger": 0,
+    "m10_replace_tracks": -0.025,
+    "m11_publish_callbacks": 0,
+    "m12_nested_savepoint": 0.075,
+    "m13_credit_event_dedup": 0.05,
+    "m14_set_permissions": 0,
+    "m15_idempotency_conflict": 0,
+    "m16_complete_dispatch": 0,
+    "m17_literal_prefix": 0.125,
+    "m18_literal_suffix": 0.15,
+    "m19_exact_token": 0.025,
+    "m20_exact_term_set": 0,
+    "m21_tenant_visibility_or": 0,
+    "m22_parent_join_scope": 0.1,
+    "m23_all_or_nothing_batch": 0,
+    "m24_nested_resource_chain": 0
+  },
+  "clusters": {
+    "query_polymorphic_batch": [
+      "m01_polymorphic_feed"
+    ],
+    "query_groupwise_max": [
+      "m02_latest_reading"
+    ],
+    "query_many_to_many_intersection": [
+      "m03_tag_intersection"
+    ],
+    "query_conditional_aggregation": [
+      "m04_conditional_totals"
+    ],
+    "freshness_association_membership": [
+      "m05_roster_membership"
+    ],
+    "freshness_key_lookup": [
+      "m06_directory_negative_cache"
+    ],
+    "freshness_filtered_aggregate": [
+      "m07_live_balance"
+    ],
+    "freshness_scalar_record": [
+      "m08_product_snapshot"
+    ],
+    "transaction_boundary": [
+      "m09_transfer_ledger",
+      "m10_replace_tracks",
+      "m11_publish_callbacks",
+      "m12_nested_savepoint"
+    ],
+    "persistent_repeated_state": [
+      "m13_credit_event_dedup",
+      "m14_set_permissions",
+      "m15_idempotency_conflict",
+      "m16_complete_dispatch"
+    ],
+    "literal-affix": [
+      "m17_literal_prefix",
+      "m18_literal_suffix"
+    ],
+    "literal-tokenization": [
+      "m19_exact_token"
+    ],
+    "literal-set-membership": [
+      "m20_exact_term_set"
+    ],
+    "access-boolean-scope": [
+      "m21_tenant_visibility_or"
+    ],
+    "access-parent-join": [
+      "m22_parent_join_scope",
+      "m24_nested_resource_chain"
+    ],
+    "access-batch-totality": [
+      "m23_all_or_nothing_batch"
+    ]
+  },
+  "primary": {
+    "method": "percentile; clusters within fixed families; paired repeats",
+    "replicates": 10000,
+    "seed": 24092028,
+    "interval_95": [
+      -0.004166666666666667,
+      0.03229166666666667
+    ],
+    "degenerate": false
+  },
+  "S1": {
+    "estimate": 0.016666666666666666,
+    "interval_95": [
+      -0.0058823529411764705,
+      0.04230769230769231
+    ],
+    "seed": 250920261,
+    "replicates": 50000,
+    "units": 16,
+    "within_unit_resampling": false,
+    "draws_sha256": "04ac17b607695b4307b9fc8a6df8330b6baeb943c88ebcd30f03c01c29d56b2f"
+  },
+  "S2": {
+    "estimates": [
+      {
+        "removed": "query_polymorphic_batch",
+        "removed_tasks": [
+          "m01_polymorphic_feed"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.021739130434782608
+      },
+      {
+        "removed": "query_groupwise_max",
+        "removed_tasks": [
+          "m02_latest_reading"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.017391304347826087
+      },
+      {
+        "removed": "query_many_to_many_intersection",
+        "removed_tasks": [
+          "m03_tag_intersection"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.017391304347826087
+      },
+      {
+        "removed": "query_conditional_aggregation",
+        "removed_tasks": [
+          "m04_conditional_totals"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.017391304347826087
+      },
+      {
+        "removed": "freshness_association_membership",
+        "removed_tasks": [
+          "m05_roster_membership"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.017391304347826087
+      },
+      {
+        "removed": "freshness_key_lookup",
+        "removed_tasks": [
+          "m06_directory_negative_cache"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.017391304347826087
+      },
+      {
+        "removed": "freshness_filtered_aggregate",
+        "removed_tasks": [
+          "m07_live_balance"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.017391304347826087
+      },
+      {
+        "removed": "freshness_scalar_record",
+        "removed_tasks": [
+          "m08_product_snapshot"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.017391304347826087
+      },
+      {
+        "removed": "transaction_boundary",
+        "removed_tasks": [
+          "m09_transfer_ledger",
+          "m10_replace_tracks",
+          "m11_publish_callbacks",
+          "m12_nested_savepoint"
+        ],
+        "remaining_tasks": 20,
+        "estimate": 0.0175
+      },
+      {
+        "removed": "persistent_repeated_state",
+        "removed_tasks": [
+          "m13_credit_event_dedup",
+          "m14_set_permissions",
+          "m15_idempotency_conflict",
+          "m16_complete_dispatch"
+        ],
+        "remaining_tasks": 20,
+        "estimate": 0.017499999999999998
+      },
+      {
+        "removed": "literal-affix",
+        "removed_tasks": [
+          "m17_literal_prefix",
+          "m18_literal_suffix"
+        ],
+        "remaining_tasks": 22,
+        "estimate": 0.005681818181818182
+      },
+      {
+        "removed": "literal-tokenization",
+        "removed_tasks": [
+          "m19_exact_token"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.016304347826086956
+      },
+      {
+        "removed": "literal-set-membership",
+        "removed_tasks": [
+          "m20_exact_term_set"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.017391304347826087
+      },
+      {
+        "removed": "access-boolean-scope",
+        "removed_tasks": [
+          "m21_tenant_visibility_or"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.017391304347826087
+      },
+      {
+        "removed": "access-parent-join",
+        "removed_tasks": [
+          "m22_parent_join_scope",
+          "m24_nested_resource_chain"
+        ],
+        "remaining_tasks": 22,
+        "estimate": 0.013636363636363636
+      },
+      {
+        "removed": "access-batch-totality",
+        "removed_tasks": [
+          "m23_all_or_nothing_batch"
+        ],
+        "remaining_tasks": 23,
+        "estimate": 0.017391304347826087
+      }
+    ],
+    "range": [
+      0.005681818181818182,
+      0.021739130434782608
+    ],
+    "jackknife_SE_descriptive": 0.012336724166245835
+  },
+  "S3": [
+    {
+      "removed": [
+        "anthropic",
+        "claude-sonnet-5"
+      ],
+      "n": 720,
+      "B": 507,
+      "C": 511,
+      "C_minus_B_pp": 0.5555555555555556,
+      "C_only": 9,
+      "B_only": 5
+    },
+    {
+      "removed": [
+        "gemini",
+        "gemini-3.5-flash-lite"
+      ],
+      "n": 720,
+      "B": 536,
+      "C": 548,
+      "C_minus_B_pp": 1.6666666666666667,
+      "C_only": 20,
+      "B_only": 8
+    },
+    {
+      "removed": [
+        "local",
+        "ruby-eval-qwen2.5-coder-7b-pilot"
+      ],
+      "n": 720,
+      "B": 637,
+      "C": 653,
+      "C_minus_B_pp": 2.2222222222222223,
+      "C_only": 21,
+      "B_only": 5
+    },
+    {
+      "removed": [
+        "openai",
+        "gpt-6-luna"
+      ],
+      "n": 720,
+      "B": 480,
+      "C": 496,
+      "C_minus_B_pp": 2.2222222222222223,
+      "C_only": 25,
+      "B_only": 9
+    }
+  ],
+  "S4": {
+    "estimate": 0.016666666666666666,
+    "variance": 0.00015000205862977602,
+    "SE": 0.012247532756836212,
+    "df_satterthwaite": 10.139364984824772,
+    "critical_satterthwaite": 2.2239945611338783,
+    "interval_95": [
+      -0.010571779571846084,
+      0.043905112905179414
+    ],
+    "df_G_minus_1": 15,
+    "critical_G_minus_1": 2.131449545559777,
+    "interval_95_G_minus_1": [
+      -0.009438331462120357,
+      0.04277166479545369
+    ],
+    "working_covariance": "I_24 for task-level means; intercept-only OLS"
+  },
+  "S5": {
+    "estimate": 0.016666666666666666,
+    "interval_95": [
+      -0.002083333333333334,
+      0.0375
+    ],
+    "seed": 250920265,
+    "replicates": 50000,
+    "units": 24,
+    "within_unit_resampling": false,
+    "draws_sha256": "a871acd09365fcbda0cfc0bb40dcc8fe030a89fb1ba4f9a629a17896db695c11"
+  },
+  "strata": [
+    {
+      "configuration": null,
+      "base_pass": false,
+      "behavior_pass": false,
+      "n": 172,
+      "B": 49,
+      "C": 50,
+      "C_minus_B_pp": 0.5813953488372093,
+      "C_only": 7,
+      "B_only": 6,
+      "runtime_in_either_D": 113,
+      "truncated_B": 20,
+      "truncated_C": 20
+    },
+    {
+      "configuration": null,
+      "base_pass": false,
+      "behavior_pass": true,
+      "n": 0,
+      "B": 0,
+      "C": 0,
+      "C_minus_B_pp": null,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": null,
+      "base_pass": true,
+      "behavior_pass": false,
+      "n": 104,
+      "B": 12,
+      "C": 25,
+      "C_minus_B_pp": 12.5,
+      "C_only": 16,
+      "B_only": 3,
+      "runtime_in_either_D": 4,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": null,
+      "base_pass": true,
+      "behavior_pass": true,
+      "n": 684,
+      "B": 659,
+      "C": 661,
+      "C_minus_B_pp": 0.29239766081871343,
+      "C_only": 2,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "anthropic",
+        "claude-sonnet-5"
+      ],
+      "base_pass": false,
+      "behavior_pass": false,
+      "n": 12,
+      "B": 6,
+      "C": 7,
+      "C_minus_B_pp": 8.333333333333334,
+      "C_only": 2,
+      "B_only": 1,
+      "runtime_in_either_D": 7,
+      "truncated_B": 2,
+      "truncated_C": 2
+    },
+    {
+      "configuration": [
+        "anthropic",
+        "claude-sonnet-5"
+      ],
+      "base_pass": false,
+      "behavior_pass": true,
+      "n": 0,
+      "B": 0,
+      "C": 0,
+      "C_minus_B_pp": null,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "anthropic",
+        "claude-sonnet-5"
+      ],
+      "base_pass": true,
+      "behavior_pass": false,
+      "n": 29,
+      "B": 12,
+      "C": 21,
+      "C_minus_B_pp": 31.03448275862069,
+      "C_only": 12,
+      "B_only": 3,
+      "runtime_in_either_D": 4,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "anthropic",
+        "claude-sonnet-5"
+      ],
+      "base_pass": true,
+      "behavior_pass": true,
+      "n": 199,
+      "B": 195,
+      "C": 197,
+      "C_minus_B_pp": 1.0050251256281406,
+      "C_only": 2,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "gemini",
+        "gemini-3.5-flash-lite"
+      ],
+      "base_pass": false,
+      "behavior_pass": false,
+      "n": 30,
+      "B": 18,
+      "C": 18,
+      "C_minus_B_pp": 0.0,
+      "C_only": 1,
+      "B_only": 1,
+      "runtime_in_either_D": 30,
+      "truncated_B": 6,
+      "truncated_C": 6
+    },
+    {
+      "configuration": [
+        "gemini",
+        "gemini-3.5-flash-lite"
+      ],
+      "base_pass": false,
+      "behavior_pass": true,
+      "n": 0,
+      "B": 0,
+      "C": 0,
+      "C_minus_B_pp": null,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "gemini",
+        "gemini-3.5-flash-lite"
+      ],
+      "base_pass": true,
+      "behavior_pass": false,
+      "n": 28,
+      "B": 0,
+      "C": 4,
+      "C_minus_B_pp": 14.285714285714286,
+      "C_only": 4,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "gemini",
+        "gemini-3.5-flash-lite"
+      ],
+      "base_pass": true,
+      "behavior_pass": true,
+      "n": 182,
+      "B": 166,
+      "C": 166,
+      "C_minus_B_pp": 0.0,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "local",
+        "ruby-eval-qwen2.5-coder-7b-pilot"
+      ],
+      "base_pass": false,
+      "behavior_pass": false,
+      "n": 118,
+      "B": 13,
+      "C": 13,
+      "C_minus_B_pp": 0.0,
+      "C_only": 4,
+      "B_only": 4,
+      "runtime_in_either_D": 64,
+      "truncated_B": 10,
+      "truncated_C": 10
+    },
+    {
+      "configuration": [
+        "local",
+        "ruby-eval-qwen2.5-coder-7b-pilot"
+      ],
+      "base_pass": false,
+      "behavior_pass": true,
+      "n": 0,
+      "B": 0,
+      "C": 0,
+      "C_minus_B_pp": null,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "local",
+        "ruby-eval-qwen2.5-coder-7b-pilot"
+      ],
+      "base_pass": true,
+      "behavior_pass": false,
+      "n": 47,
+      "B": 0,
+      "C": 0,
+      "C_minus_B_pp": 0.0,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "local",
+        "ruby-eval-qwen2.5-coder-7b-pilot"
+      ],
+      "base_pass": true,
+      "behavior_pass": true,
+      "n": 75,
+      "B": 70,
+      "C": 70,
+      "C_minus_B_pp": 0.0,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "openai",
+        "gpt-6-luna"
+      ],
+      "base_pass": false,
+      "behavior_pass": false,
+      "n": 12,
+      "B": 12,
+      "C": 12,
+      "C_minus_B_pp": 0.0,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 12,
+      "truncated_B": 2,
+      "truncated_C": 2
+    },
+    {
+      "configuration": [
+        "openai",
+        "gpt-6-luna"
+      ],
+      "base_pass": false,
+      "behavior_pass": true,
+      "n": 0,
+      "B": 0,
+      "C": 0,
+      "C_minus_B_pp": null,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "openai",
+        "gpt-6-luna"
+      ],
+      "base_pass": true,
+      "behavior_pass": false,
+      "n": 0,
+      "B": 0,
+      "C": 0,
+      "C_minus_B_pp": null,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    },
+    {
+      "configuration": [
+        "openai",
+        "gpt-6-luna"
+      ],
+      "base_pass": true,
+      "behavior_pass": true,
+      "n": 228,
+      "B": 228,
+      "C": 228,
+      "C_minus_B_pp": 0.0,
+      "C_only": 0,
+      "B_only": 0,
+      "runtime_in_either_D": 0,
+      "truncated_B": 0,
+      "truncated_C": 0
+    }
+  ],
+  "signal_stratum_without_local": {
+    "n": 57,
+    "B": 12,
+    "C": 25,
+    "C_minus_B_pp": 22.80701754385965,
+    "C_only": 16,
+    "B_only": 3
+  },
+  "base_coverage": [
+    {
+      "category": "different_base_data",
+      "tasks": 8,
+      "n": 320,
+      "B": 209,
+      "C": 224,
+      "C_minus_B_pp": 4.6875,
+      "C_only": 19,
+      "B_only": 4
+    },
+    {
+      "category": "equivalent_base",
+      "tasks": 2,
+      "n": 80,
+      "B": 70,
+      "C": 70,
+      "C_minus_B_pp": 0.0,
+      "C_only": 0,
+      "B_only": 0
+    },
+    {
+      "category": "identical_base",
+      "tasks": 14,
+      "n": 560,
+      "B": 441,
+      "C": 442,
+      "C_minus_B_pp": 0.17857142857142858,
+      "C_only": 6,
+      "B_only": 5
+    }
+  ]
+}
