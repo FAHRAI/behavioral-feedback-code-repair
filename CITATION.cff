@@ -5,6 +5,10 @@ version: 1.0.0
 date-released: 2026-09-29
 license: MIT
 repository-code: "https://github.com/FAHRAI/behavioral-feedback-code-repair"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23129973
+    description: Evidence archives (prompts, responses, programs and evaluation logs)
 authors:
   - family-names: Kholodniak
     given-names: Oleksandr

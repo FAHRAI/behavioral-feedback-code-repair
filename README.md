@@ -51,7 +51,7 @@ a relative tolerance of 1e-12; everything else must match exactly. Outputs go to
 ## Evidence archives
 
 Prompts, returned text, generated programs, composed tests and evaluation logs are archived on Zenodo
-(https://doi.org/10.5281/zenodo.PENDING) in two files whose checksums are recorded in
+(https://doi.org/10.5281/zenodo.23129973) in two files whose checksums are recorded in
 `data/manifest.json`:
 
 - `evidence-main-v1.0.0.tar.gz`: main experiment, corpus audits and scenario follow-up;

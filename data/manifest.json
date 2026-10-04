@@ -252,12 +252,12 @@
     "file": "evidence-main-v1.0.0.tar.gz",
     "sha256": "874944d2c96e4048735bc9a581f1dd43d6b60037d6e52795a2a3f5f080919698",
     "members": 33300,
-    "url": "https://doi.org/10.5281/zenodo.PENDING"
+    "url": "https://doi.org/10.5281/zenodo.23129973"
   },
   "confirmatory_archive": {
     "file": "evidence-confirmatory-v1.0.0.tar.gz",
     "sha256": "e97c7d91ad1bb7fc186d2f2782befcdb41a2a4a672ae86e9b1eb7795a1b69bc9",
     "members": 39875,
-    "url": "https://doi.org/10.5281/zenodo.PENDING"
+    "url": "https://doi.org/10.5281/zenodo.23129973"
   }
 }

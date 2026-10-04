@@ -1,0 +1,35 @@
+{
+  "title": "Behavioral test feedback for one-step repair of LLM-generated code: data and analysis",
+  "upload_type": "software",
+  "description": "Corpus, paired outcomes, analysis code, input validation and isolated replay for the paper \"Behavioral test feedback for one-step repair of LLM-generated code\" (O. Kholodniak, O. Prokhorov). The evidence archives with prompts, responses, programs and evaluation logs are a separate record: https://doi.org/10.5281/zenodo.23129973.",
+  "creators": [
+    {
+      "name": "Kholodniak, Oleksandr",
+      "affiliation": "National Aerospace University \"Kharkiv Aviation Institute\"",
+      "orcid": "0009-0000-1012-7361"
+    },
+    {
+      "name": "Prokhorov, Oleksandr",
+      "affiliation": "National Aerospace University \"Kharkiv Aviation Institute\"",
+      "orcid": "0000-0003-4680-4082"
+    }
+  ],
+  "license": "mit",
+  "keywords": [
+    "large language models",
+    "automated program repair",
+    "behavioral testing",
+    "execution feedback",
+    "Ruby on Rails"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23129973",
+      "relation": "isSupplementedBy",
+      "resource_type": "dataset",
+      "scheme": "doi"
+    }
+  ],
+  "language": "eng",
+  "version": "1.0.0"
+}
