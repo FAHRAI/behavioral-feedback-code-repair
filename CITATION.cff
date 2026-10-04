@@ -7,6 +7,9 @@ license: MIT
 repository-code: "https://github.com/FAHRAI/behavioral-feedback-code-repair"
 identifiers:
   - type: doi
+    value: 10.5281/zenodo.23130102
+    description: Archived releases of this repository (all versions)
+  - type: doi
     value: 10.5281/zenodo.23129973
     description: Evidence archives (prompts, responses, programs and evaluation logs)
 authors:

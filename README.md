@@ -1,5 +1,7 @@
 # Behavioral test feedback for one-step repair of LLM-generated code
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23130102.svg)](https://doi.org/10.5281/zenodo.23130102)
+
 Data, analysis code and reproduction tools for the paper
 
 > O. Kholodniak, O. Prokhorov. *Behavioral test feedback for one-step repair of LLM-generated code.*
